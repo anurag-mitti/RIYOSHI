@@ -1,0 +1,107 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 230 15% 15%;
+    --foreground: 216 12% 84%;
+
+    --card: 230 15% 18%;
+    --card-foreground: 216 12% 84%;
+
+    --popover: 230 15% 18%;
+    --popover-foreground: 216 12% 84%;
+
+    --primary: 250 100% 75%;
+    --primary-foreground: 215 27% 97%;
+
+    --secondary: 220 14% 24%;
+    --secondary-foreground: 216 12% 84%;
+
+    --muted: 220 14% 24%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 220 70% 60%;
+    --accent-foreground: 215 27% 97%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 230 15% 15%;
+    --sidebar-foreground: 216 12% 84%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .code-block {
+    @apply relative font-mono text-sm bg-code-bg text-code-text p-4 rounded-md overflow-x-auto;
+  }
+
+  .code-block .keyword {
+    @apply text-code-keyword;
+  }
+
+  .code-block .function {
+    @apply text-code-function;
+  }
+
+  .code-block .string {
+    @apply text-code-string;
+  }
+
+  .code-block .number {
+    @apply text-code-number;
+  }
+
+  .code-block .type {
+    @apply text-code-type;
+  }
+
+  .code-block .comment {
+    @apply text-code-comment;
+  }
+
+  .typing-demo {
+    width: 22ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+}
