@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from '../components/common/Header'
+import Orb from "@/components/Orb";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,10 +21,28 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Header />
+        <div style={{ background: 'black', position: 'relative', width: '100%', minHeight: '600px' }}>
+          {/* Orb as background */}
+          <div style={{
+            position: 'absolute',
+            top: 0, left: 0, width: '100%', height: '100%',
+            zIndex: 0, // background
+            pointerEvents: 'none' // so it doesn't block clicks
+          }}>
+            <Orb
+              hoverIntensity={0.5}
+              rotateOnHover={true}
+              hue={0}
+              forceHoverState={false}
+            />
+          </div>
+          {/* Page content above Orb */}
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
